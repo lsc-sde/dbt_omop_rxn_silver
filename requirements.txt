@@ -1,0 +1,8 @@
+# Optional if running into SSL errors when running dbt deps
+# pip-system-certs
+black
+dbt-core==1.7.6
+dbt-databricks==1.7.4
+pre-commit
+sqlfluff==2.3.5
+sqlfluff-templater-dbt
