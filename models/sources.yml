@@ -13,10 +13,19 @@ sources:
       - name: care_site
         columns:
           - name: care_site_id
+            tests:
+              - unique
+              - not_null
           - name: care_site_name
+            tests:
+              - not_null
           - name: place_of_service_concept_id
           - name: location_id
+            tests:
+              - not_null
           - name: care_site_source_value
+            tests:
+              - not_null
           - name: place_of_service_source_value
       - name: cdm_source
         columns:
@@ -94,6 +103,10 @@ sources:
         columns:
           - name: condition_occurrence_id
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: condition_concept_id
           - name: condition_start_date
           - name: condition_start_datetime
@@ -135,6 +148,10 @@ sources:
       - name: death
         columns:
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: death_date
           - name: death_datetime
           - name: death_type_concept_id
@@ -145,6 +162,10 @@ sources:
         columns:
           - name: device_exposure_id
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: device_concept_id
           - name: device_exposure_start_date
           - name: device_exposure_start_datetime
@@ -155,6 +176,10 @@ sources:
           - name: production_id
           - name: quantity
           - name: provider_id
+            tests:
+              - relationships:
+                  to: source('omop', 'provider')
+                  field: provider_id
           - name: visit_occurrence_id
           - name: visit_detail_id
           - name: device_source_value
@@ -189,6 +214,10 @@ sources:
         columns:
           - name: drug_exposure_id
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: drug_concept_id
           - name: drug_exposure_start_date
           - name: drug_exposure_start_datetime
@@ -269,6 +298,10 @@ sources:
         columns:
           - name: measurement_id
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: measurement_concept_id
           - name: measurement_date
           - name: measurement_datetime
@@ -342,6 +375,10 @@ sources:
         columns:
           - name: observation_id
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: observation_concept_id
           - name: observation_date
           - name: observation_datetime
@@ -368,6 +405,10 @@ sources:
         columns:
           - name: observation_period_id
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: observation_period_start_date
           - name: observation_period_end_date
           - name: period_type_concept_id
@@ -414,9 +455,21 @@ sources:
         columns:
           - name: procedure_occurrence_id
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: procedure_concept_id
           - name: procedure_date
+            tests:
+              - dbt_utils.expression_is_true:
+                  name: procedure_occurrence_procedure_date_le_now
+                  expression: "<= CURRENT_TIMESTAMP()"
           - name: procedure_datetime
+            tests:
+              - dbt_utils.expression_is_true:
+                  name: procedure_occurrence_procedure_datetime_le_now
+                  expression: "<= CURRENT_TIMESTAMP()"
           - name: procedure_end_date
           - name: procedure_end_datetime
           - name: procedure_type_concept_id
@@ -455,6 +508,10 @@ sources:
         columns:
           - name: specimen_id
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: specimen_concept_id
           - name: specimen_type_concept_id
           - name: specimen_date
@@ -472,6 +529,10 @@ sources:
         columns:
           - name: visit_detail_id
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: visit_detail_concept_id
           - name: visit_detail_start_date
           - name: visit_detail_start_datetime
@@ -493,9 +554,20 @@ sources:
         columns:
           - name: visit_occurrence_id
           - name: person_id
+            tests:
+              - relationships:
+                  to: source('omop', 'person')
+                  field: person_id
           - name: visit_concept_id
           - name: visit_start_date
+            tests:
+              - dbt_utils.expression_is_true:
+                  name: visit_occurrence_visit_start_date_le_now
+                  expression: "<= CURRENT_TIMESTAMP()"
           - name: visit_start_datetime
+            tests:
+              - dbt_utils.expression_is_true:
+                  expression: "<= CURRENT_TIMESTAMP()"
           - name: visit_end_date
           - name: visit_end_datetime
           - name: visit_type_concept_id
