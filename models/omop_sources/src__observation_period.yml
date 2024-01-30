@@ -1,0 +1,17 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: observation_period
+      columns:
+        - name: observation_period_id
+        - name: person_id
+          tests:
+            - relationships:
+                to: source('omop', 'person')
+                field: person_id
+        - name: observation_period_start_date
+        - name: observation_period_end_date
+        - name: period_type_concept_id

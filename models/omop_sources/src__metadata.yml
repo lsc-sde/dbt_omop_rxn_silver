@@ -1,0 +1,17 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: metadata
+      columns:
+        - name: metadata_id
+        - name: metadata_concept_id
+        - name: metadata_type_concept_id
+        - name: name
+        - name: value_as_string
+        - name: value_as_concept_id
+        - name: value_as_number
+        - name: metadata_date
+        - name: metadata_datetime

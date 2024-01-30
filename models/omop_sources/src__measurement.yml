@@ -1,0 +1,38 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: measurement
+      columns:
+        - name: measurement_id
+        - name: person_id
+          tests:
+            - relationships:
+                to: source('omop', 'person')
+                field: person_id
+        - name: measurement_concept_id
+        - name: measurement_date
+        - name: measurement_datetime
+        - name: measurement_time
+        - name: measurement_type_concept_id
+        - name: operator_concept_id
+        - name: value_as_number
+        - name: value_as_concept_id
+        - name: unit_concept_id
+        - name: range_low
+        - name: range_high
+        - name: provider_id
+        - name: visit_occurrence_id
+        - name: visit_detail_id
+        - name: measurement_source_value
+        - name: measurement_source_concept_id
+        - name: unit_source_value
+        - name: unit_source_concept_id
+        - name: value_source_value
+        - name: meas_event_field_concept_id
+        - name: measurement_event_id
+        - name: unique_key
+        - name: datasource
+        - name: updated_at

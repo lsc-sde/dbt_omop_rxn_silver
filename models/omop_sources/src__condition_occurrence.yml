@@ -1,0 +1,28 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: condition_occurrence
+      columns:
+        - name: condition_occurrence_id
+        - name: person_id
+          tests:
+            - relationships:
+                to: source('omop', 'person')
+                field: person_id
+        - name: condition_concept_id
+        - name: condition_start_date
+        - name: condition_start_datetime
+        - name: condition_end_date
+        - name: condition_end_datetime
+        - name: condition_type_concept_id
+        - name: condition_status_concept_id
+        - name: stop_reason
+        - name: provider_id
+        - name: visit_occurrence_id
+        - name: visit_detail_id
+        - name: condition_source_value
+        - name: condition_source_concept_id
+        - name: condition_status_source_value

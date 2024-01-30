@@ -1,0 +1,62 @@
+version: 2
+sources:
+- name: vocab
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: concept
+      columns:
+        - name: concept_id
+        - name: concept_name
+        - name: domain_id
+        - name: vocabulary_id
+        - name: concept_class_id
+        - name: standard_concept
+        - name: concept_code
+        - name: valid_start_date
+        - name: valid_end_date
+        - name: invalid_reason
+    - name: concept_ancestor
+      columns:
+        - name: ancestor_concept_id
+        - name: descendant_concept_id
+        - name: min_levels_of_separation
+        - name: max_levels_of_separation
+    - name: concept_class
+      columns:
+        - name: concept_class_id
+        - name: concept_class_name
+        - name: concept_class_concept_id
+    - name: concept_relationship
+      columns:
+        - name: concept_id_1
+        - name: concept_id_2
+        - name: relationship_id
+        - name: valid_start_date
+        - name: valid_end_date
+        - name: invalid_reason
+    - name: concept_synonym
+      columns:
+        - name: concept_id
+        - name: concept_synonym_name
+        - name: language_concept_id
+    - name: domain
+      columns:
+        - name: domain_id
+        - name: domain_name
+        - name: domain_concept_id
+    - name: relationship
+      columns:
+        - name: relationship_id
+        - name: relationship_name
+        - name: is_hierarchical
+        - name: defines_ancestry
+        - name: reverse_relationship_id
+        - name: relationship_concept_id
+    - name: vocabulary
+      columns:
+        - name: vocabulary_id
+        - name: vocabulary_name
+        - name: vocabulary_reference
+        - name: vocabulary_version
+        - name: vocabulary_concept_id

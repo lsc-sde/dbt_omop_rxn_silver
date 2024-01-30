@@ -1,0 +1,11 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: episode_event
+      columns:
+        - name: episode_id
+        - name: event_id
+        - name: episode_event_field_concept_id

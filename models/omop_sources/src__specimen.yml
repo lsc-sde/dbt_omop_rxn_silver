@@ -1,0 +1,27 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: specimen
+      columns:
+        - name: specimen_id
+        - name: person_id
+          tests:
+            - relationships:
+                to: source('omop', 'person')
+                field: person_id
+        - name: specimen_concept_id
+        - name: specimen_type_concept_id
+        - name: specimen_date
+        - name: specimen_datetime
+        - name: quantity
+        - name: unit_concept_id
+        - name: anatomic_site_concept_id
+        - name: disease_status_concept_id
+        - name: specimen_source_id
+        - name: specimen_source_value
+        - name: unit_source_value
+        - name: anatomic_site_source_value
+        - name: disease_status_source_value

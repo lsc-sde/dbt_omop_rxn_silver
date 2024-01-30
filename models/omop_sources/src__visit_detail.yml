@@ -1,0 +1,31 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: visit_detail
+      columns:
+        - name: visit_detail_id
+        - name: person_id
+          tests:
+            - relationships:
+                to: source('omop', 'person')
+                field: person_id
+        - name: visit_detail_concept_id
+        - name: visit_detail_start_date
+        - name: visit_detail_start_datetime
+        - name: visit_detail_end_date
+        - name: visit_detail_end_datetime
+        - name: visit_detail_type_concept_id
+        - name: provider_id
+        - name: care_site_id
+        - name: visit_detail_source_value
+        - name: visit_detail_source_concept_id
+        - name: admitted_from_concept_id
+        - name: admitted_from_source_value
+        - name: discharged_to_source_value
+        - name: discharged_to_concept_id
+        - name: preceding_visit_detail_id
+        - name: parent_visit_detail_id
+        - name: visit_occurrence_id

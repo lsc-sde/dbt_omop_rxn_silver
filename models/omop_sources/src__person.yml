@@ -1,0 +1,26 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: person
+      columns:
+        - name: person_id
+        - name: gender_concept_id
+        - name: year_of_birth
+        - name: month_of_birth
+        - name: day_of_birth
+        - name: birth_datetime
+        - name: race_concept_id
+        - name: ethnicity_concept_id
+        - name: location_id
+        - name: provider_id
+        - name: care_site_id
+        - name: person_source_value
+        - name: gender_source_value
+        - name: gender_source_concept_id
+        - name: race_source_value
+        - name: race_source_concept_id
+        - name: ethnicity_source_value
+        - name: ethnicity_source_concept_id

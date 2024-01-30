@@ -1,0 +1,25 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: payer_plan_period
+      columns:
+        - name: payer_plan_period_id
+        - name: person_id
+        - name: payer_plan_period_start_date
+        - name: payer_plan_period_end_date
+        - name: payer_concept_id
+        - name: payer_source_value
+        - name: payer_source_concept_id
+        - name: plan_concept_id
+        - name: plan_source_value
+        - name: plan_source_concept_id
+        - name: sponsor_concept_id
+        - name: sponsor_source_value
+        - name: sponsor_source_concept_id
+        - name: family_source_value
+        - name: stop_reason_concept_id
+        - name: stop_reason_source_value
+        - name: stop_reason_source_concept_id

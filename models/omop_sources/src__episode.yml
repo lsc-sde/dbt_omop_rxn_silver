@@ -1,0 +1,21 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: episode
+      columns:
+        - name: episode_id
+        - name: person_id
+        - name: episode_concept_id
+        - name: episode_start_date
+        - name: episode_start_datetime
+        - name: episode_end_date
+        - name: episode_end_datetime
+        - name: episode_parent_id
+        - name: episode_number
+        - name: episode_object_concept_id
+        - name: episode_type_concept_id
+        - name: episode_source_value
+        - name: episode_source_concept_id

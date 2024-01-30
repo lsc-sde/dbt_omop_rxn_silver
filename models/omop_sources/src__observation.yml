@@ -1,0 +1,36 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: observation
+      columns:
+        - name: observation_id
+        - name: person_id
+          tests:
+            - relationships:
+                to: source('omop', 'person')
+                field: person_id
+        - name: observation_concept_id
+        - name: observation_date
+        - name: observation_datetime
+        - name: observation_type_concept_id
+        - name: value_as_number
+        - name: value_as_string
+        - name: value_as_concept_id
+        - name: qualifier_concept_id
+        - name: unit_concept_id
+        - name: provider_id
+        - name: visit_occurrence_id
+        - name: visit_detail_id
+        - name: observation_source_value
+        - name: observation_source_concept_id
+        - name: unit_source_value
+        - name: qualifier_source_value
+        - name: value_source_value
+        - name: observation_event_id
+        - name: obs_event_field_concept_id
+        - name: unique_key
+        - name: datasource
+        - name: updated_at

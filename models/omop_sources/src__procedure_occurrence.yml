@@ -1,0 +1,36 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: procedure_occurrence
+      columns:
+        - name: procedure_occurrence_id
+        - name: person_id
+          tests:
+            - relationships:
+                to: source('omop', 'person')
+                field: person_id
+        - name: procedure_concept_id
+        - name: procedure_date
+          tests:
+            - dbt_utils.expression_is_true:
+                name: procedure_occurrence_procedure_date_le_now
+                expression: "<= CURRENT_TIMESTAMP()"
+        - name: procedure_datetime
+          tests:
+            - dbt_utils.expression_is_true:
+                name: procedure_occurrence_procedure_datetime_le_now
+                expression: "<= CURRENT_TIMESTAMP()"
+        - name: procedure_end_date
+        - name: procedure_end_datetime
+        - name: procedure_type_concept_id
+        - name: modifier_concept_id
+        - name: quantity
+        - name: provider_id
+        - name: visit_occurrence_id
+        - name: visit_detail_id
+        - name: procedure_source_value
+        - name: procedure_source_concept_id
+        - name: modifier_source_value

@@ -1,0 +1,19 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: cdm_source
+      columns:
+        - name: cdm_source_name
+        - name: cdm_source_abbreviation
+        - name: cdm_holder
+        - name: source_description
+        - name: source_documentation_reference
+        - name: cdm_etl_reference
+        - name: source_release_date
+        - name: cdm_release_date
+        - name: cdm_version
+        - name: cdm_version_concept_id
+        - name: vocabulary_version

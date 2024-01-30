@@ -1,0 +1,15 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: cohort_definition
+      columns:
+        - name: cohort_definition_id
+        - name: cohort_definition_name
+        - name: cohort_definition_description
+        - name: definition_type_concept_id
+        - name: cohort_definition_syntax
+        - name: subject_concept_id
+        - name: cohort_initiation_date

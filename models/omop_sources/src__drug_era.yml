@@ -1,0 +1,15 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: drug_era
+      columns:
+        - name: drug_era_id
+        - name: person_id
+        - name: drug_concept_id
+        - name: drug_era_start_date
+        - name: drug_era_end_date
+        - name: drug_exposure_count
+        - name: gap_days

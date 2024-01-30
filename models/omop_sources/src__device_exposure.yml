@@ -1,0 +1,35 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: device_exposure
+      columns:
+        - name: device_exposure_id
+        - name: person_id
+          tests:
+            - relationships:
+                to: source('omop', 'person')
+                field: person_id
+        - name: device_concept_id
+        - name: device_exposure_start_date
+        - name: device_exposure_start_datetime
+        - name: device_exposure_end_date
+        - name: device_exposure_end_datetime
+        - name: device_type_concept_id
+        - name: unique_device_id
+        - name: production_id
+        - name: quantity
+        - name: provider_id
+          tests:
+            - relationships:
+                to: source('omop', 'provider')
+                field: provider_id
+        - name: visit_occurrence_id
+        - name: visit_detail_id
+        - name: device_source_value
+        - name: device_source_concept_id
+        - name: unit_concept_id
+        - name: unit_source_value
+        - name: unit_source_concept_id

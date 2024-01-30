@@ -1,0 +1,22 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: note_nlp
+      columns:
+        - name: note_nlp_id
+        - name: note_id
+        - name: section_concept_id
+        - name: snippet
+        - name: offset
+        - name: lexical_variant
+        - name: note_nlp_concept_id
+        - name: note_nlp_source_concept_id
+        - name: nlp_system
+        - name: nlp_date
+        - name: nlp_datetime
+        - name: term_exists
+        - name: term_temporal
+        - name: term_modifiers

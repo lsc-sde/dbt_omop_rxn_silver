@@ -1,0 +1,14 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: condition_era
+      columns:
+        - name: condition_era_id
+        - name: person_id
+        - name: condition_concept_id
+        - name: condition_era_start_date
+        - name: condition_era_end_date
+        - name: condition_occurrence_count

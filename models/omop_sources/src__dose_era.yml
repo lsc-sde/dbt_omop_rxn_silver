@@ -1,0 +1,15 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: dose_era
+      columns:
+        - name: dose_era_id
+        - name: person_id
+        - name: drug_concept_id
+        - name: unit_concept_id
+        - name: dose_value
+        - name: dose_era_start_date
+        - name: dose_era_end_date

@@ -1,0 +1,23 @@
+version: 2
+sources:
+- name: omop
+  catalog: hive_metastore
+  schema: omop_source
+  tables:
+    - name: care_site
+      columns:
+        - name: care_site_id
+          tests:
+            - unique
+            - not_null
+        - name: care_site_name
+          tests:
+            - not_null
+        - name: place_of_service_concept_id
+        - name: location_id
+          tests:
+            - not_null
+        - name: care_site_source_value
+          tests:
+            - not_null
+        - name: place_of_service_source_value
