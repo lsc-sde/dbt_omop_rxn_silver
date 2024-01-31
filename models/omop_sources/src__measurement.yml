@@ -56,6 +56,11 @@ sources:
                 to: source('vocab', 'concept')
                 field: concept_id
         - name: value_as_number
+          tests:
+            - measurement_acceptable_value_ranges:
+                name: range__measurement_acceptable_values
+                model_acceptable_ranges: ref('measurement_acceptable_value_ranges')
+
         - name: value_as_concept_id
           tests:
             - relationships:
