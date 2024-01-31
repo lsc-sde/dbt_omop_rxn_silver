@@ -14,6 +14,7 @@ sources:
           tests:
             - not_null
             - relationships:
+                name: fk__observation_person_id
                 to: source('omop', 'person')
                 field: person_id
         - name: observation_concept_id

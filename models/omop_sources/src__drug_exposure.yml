@@ -14,6 +14,7 @@ sources:
           tests:
             - not_null
             - relationships:
+                name: fk__drug_exposure_person_id
                 to: source('omop', 'person')
                 field: person_id
         - name: drug_concept_id
