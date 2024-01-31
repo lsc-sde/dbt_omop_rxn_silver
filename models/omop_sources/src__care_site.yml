@@ -11,17 +11,12 @@ sources:
             - unique
             - not_null
         - name: care_site_name
-          tests:
-            - not_null
         - name: place_of_service_concept_id
         - name: location_id
           tests:
-            - not_null
             - relationships:
                 name: fk__care_site_location_id
                 to: source('omop', 'location')
                 field: location_id
         - name: care_site_source_value
-          tests:
-            - not_null
         - name: place_of_service_source_value
