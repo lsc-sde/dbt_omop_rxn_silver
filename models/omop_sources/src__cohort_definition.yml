@@ -7,9 +7,17 @@ sources:
     - name: cohort_definition
       columns:
         - name: cohort_definition_id
+          tests:
+            - not_null
         - name: cohort_definition_name
+          tests:
+            - not_null
         - name: cohort_definition_description
         - name: definition_type_concept_id
+          tests:
+            - not_null
         - name: cohort_definition_syntax
         - name: subject_concept_id
+          tests:
+            - not_null
         - name: cohort_initiation_date

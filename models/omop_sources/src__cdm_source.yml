@@ -7,6 +7,8 @@ sources:
     - name: cdm_source
       columns:
         - name: cdm_source_name
+          tests:
+            - not_null
         - name: cdm_source_abbreviation
         - name: cdm_holder
         - name: source_description
