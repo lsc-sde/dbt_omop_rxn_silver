@@ -8,11 +8,30 @@ sources:
       columns:
         - name: person_id
           tests:
+            - unique
+            - not_null
             - relationships:
+                name: fk__death_person_id
                 to: source('omop', 'person')
                 field: person_id
         - name: death_date
+          tests:
+            - not_null
+            - dbt_utils.expression_is_true:
+                name: le_now__death_death_date
+                expression: "<= CURRENT_TIMESTAMP()"
+            - linked_model_column_comparison:
+                other_model: source('omop', 'person')
+                other_column: birth_datetime
+                fk: person_id
+                operator: 'ge'
+
         - name: death_datetime
+          tests:
+            - not_null
+            - dbt_utils.expression_is_true:
+                name: le_now__death_death_datetime
+                expression: "<= CURRENT_TIMESTAMP()"
         - name: death_type_concept_id
         - name: cause_concept_id
         - name: cause_source_value

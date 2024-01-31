@@ -37,6 +37,7 @@ dispatch:
 
 tests:
   store_failures: true
+  store_failures_as: table
 # Use dbt variables for simple concept lists
 # For more complex requirements, consider using seeds
 vars: {}
