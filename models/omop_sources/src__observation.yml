@@ -37,5 +37,12 @@ sources:
         - name: observation_event_id
         - name: obs_event_field_concept_id
         - name: unique_key
+          tests:
+            - unique
+            - not_null
         - name: datasource
+          tests:
+            - not_null
         - name: updated_at
+          tests:
+            - not_null
