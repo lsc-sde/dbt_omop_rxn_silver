@@ -17,6 +17,10 @@ sources:
         - name: location_id
           tests:
             - not_null
+            - relationships:
+                name: fk__care_site_location_id
+                to: source('omop', 'location')
+                field: location_id
         - name: care_site_source_value
           tests:
             - not_null
