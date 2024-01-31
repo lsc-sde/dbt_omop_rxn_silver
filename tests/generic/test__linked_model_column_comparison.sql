@@ -2,7 +2,6 @@
 
 {# This tests uses operator to compare two columns in two models joined by fk #}
 
-
 select
     m1.{{ fk }},
     {{ column_name }},
@@ -22,9 +21,5 @@ on m1.{{ fk }} = m2.{{ fk }}
 {% elif operator=='eq' %}
   where {{ column_name }} != {{ other_column }}
 {% endif %}
-
-
-
-
 
 {% endtest %}
