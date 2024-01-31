@@ -20,7 +20,7 @@ sources:
             - dbt_utils.expression_is_true:
                 name: le_now__death_death_date
                 expression: "<= CURRENT_TIMESTAMP()"
-            - linked_model_column_comparison:
+            - linked_model_date_comparison:
                 name: comp__death_date_ge_birth_datetime
                 other_model: source('omop', 'person')
                 other_column: birth_datetime
@@ -33,7 +33,7 @@ sources:
             - dbt_utils.expression_is_true:
                 name: le_now__death_death_datetime
                 expression: "<= CURRENT_TIMESTAMP()"
-            - linked_model_column_comparison:
+            - linked_model_date_comparison:
                 name: comp__death_datetime_ge_birth_datetime
                 other_model: source('omop', 'person')
                 other_column: birth_datetime
