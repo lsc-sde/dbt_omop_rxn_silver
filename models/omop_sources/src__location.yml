@@ -18,6 +18,11 @@ sources:
         - name: county
         - name: location_source_value
         - name: country_concept_id
+          tests:
+            - relationships:
+                name: fk__location_country_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: country_source_value
         - name: latitude
         - name: longitude

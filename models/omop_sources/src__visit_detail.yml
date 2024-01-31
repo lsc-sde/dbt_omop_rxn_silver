@@ -18,6 +18,12 @@ sources:
                 to: source('omop', 'person')
                 field: person_id
         - name: visit_detail_concept_id
+          tests:
+            - not_null
+            - relationships:
+                name: fk__visit_detail_visit_detail_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: visit_detail_start_date
           tests:
             - not_null
@@ -26,13 +32,20 @@ sources:
                 expression: "<= CURRENT_TIMESTAMP()"
         - name: visit_detail_start_datetime
           tests:
-            - not_null
             - dbt_utils.expression_is_true:
                 name: le_now__visit_detail_visit_detail_start_datetime
                 expression: "<= CURRENT_TIMESTAMP()"
         - name: visit_detail_end_date
+          tests:
+            - not_null
         - name: visit_detail_end_datetime
         - name: visit_detail_type_concept_id
+          tests:
+            - not_null
+            - relationships:
+                name: fk__visit_detail_visit_detail_type_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: provider_id
           tests:
             - relationships:
@@ -47,10 +60,25 @@ sources:
                 field: care_site_id
         - name: visit_detail_source_value
         - name: visit_detail_source_concept_id
+          tests:
+            - relationships:
+                name: fk__visit_detail_visit_detail_source_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: admitted_from_concept_id
+          tests:
+            - relationships:
+                name: fk__visit_detail_admitted_from_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: admitted_from_source_value
         - name: discharged_to_source_value
         - name: discharged_to_concept_id
+          tests:
+            - relationships:
+                name: fk__visit_detail_discharged_to_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: preceding_visit_detail_id
         - name: parent_visit_detail_id
         - name: visit_occurrence_id
