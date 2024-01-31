@@ -7,8 +7,12 @@ sources:
     - name: drug_exposure
       columns:
         - name: drug_exposure_id
+          tests:
+            - unique
+            - not_null
         - name: person_id
           tests:
+            - not_null
             - relationships:
                 to: source('omop', 'person')
                 field: person_id

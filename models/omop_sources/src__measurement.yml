@@ -7,8 +7,12 @@ sources:
     - name: measurement
       columns:
         - name: measurement_id
+          tests:
+            - unique
+            - not_null
         - name: person_id
           tests:
+            - not_null
             - relationships:
                 to: source('omop', 'person')
                 field: person_id

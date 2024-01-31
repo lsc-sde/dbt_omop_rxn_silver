@@ -7,19 +7,25 @@ sources:
     - name: procedure_occurrence
       columns:
         - name: procedure_occurrence_id
+          tests:
+            - unique
+            - not_null
         - name: person_id
           tests:
+            - not_null
             - relationships:
                 to: source('omop', 'person')
                 field: person_id
         - name: procedure_concept_id
         - name: procedure_date
           tests:
+            - not_null
             - dbt_utils.expression_is_true:
                 name: procedure_occurrence_procedure_date_le_now
                 expression: "<= CURRENT_TIMESTAMP()"
         - name: procedure_datetime
           tests:
+            - not_null
             - dbt_utils.expression_is_true:
                 name: procedure_occurrence_procedure_datetime_le_now
                 expression: "<= CURRENT_TIMESTAMP()"

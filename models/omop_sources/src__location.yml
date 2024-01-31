@@ -7,6 +7,9 @@ sources:
     - name: location
       columns:
         - name: location_id
+          tests:
+            - unique
+            - not_null
         - name: address_1
         - name: address_2
         - name: city

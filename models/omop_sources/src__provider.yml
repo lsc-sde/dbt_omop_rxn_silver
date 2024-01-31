@@ -7,6 +7,9 @@ sources:
     - name: provider
       columns:
         - name: provider_id
+          tests:
+            - unique
+            - not_null
         - name: provider_name
         - name: npi
         - name: dea

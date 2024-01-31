@@ -7,6 +7,9 @@ sources:
     - name: specimen
       columns:
         - name: specimen_id
+          tests:
+            - unique
+            - not_null
         - name: person_id
           tests:
             - relationships:
@@ -15,6 +18,8 @@ sources:
         - name: specimen_concept_id
         - name: specimen_type_concept_id
         - name: specimen_date
+          tests:
+            - not_null
         - name: specimen_datetime
         - name: quantity
         - name: unit_concept_id

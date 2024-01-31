@@ -7,11 +7,16 @@ sources:
     - name: person
       columns:
         - name: person_id
+          tests:
+            - unique
+            - not_null
         - name: gender_concept_id
         - name: year_of_birth
         - name: month_of_birth
         - name: day_of_birth
         - name: birth_datetime
+          tests:
+            - not_null
         - name: race_concept_id
         - name: ethnicity_concept_id
         - name: location_id
