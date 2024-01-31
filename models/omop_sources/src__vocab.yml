@@ -7,26 +7,80 @@ sources:
     - name: concept
       columns:
         - name: concept_id
+          tests:
+            - unique
+            - not null
         - name: concept_name
+          tests:
+            - not null
         - name: domain_id
+          tests:
+            - not null
+            - relationships:
+                name: fk__concept_domain_id
+                to: source('vocab', 'domain')
+                field: domain_id
         - name: vocabulary_id
+          tests:
+            - not null
+            - relationships:
+                name: fk__concept_vocabulary_id
+                to: source('vocab', 'vocabulary')
+                field: vocabulary_id
         - name: concept_class_id
+          tests:
+            - not null
+            - relationships:
+                name: fk__concept_concept_class_id
+                to: source('vocab', 'concept_class')
+                field: concept_class_id
         - name: standard_concept
         - name: concept_code
         - name: valid_start_date
+          tests:
+            - not null
         - name: valid_end_date
+          tests:
+            - not null
         - name: invalid_reason
     - name: concept_ancestor
       columns:
         - name: ancestor_concept_id
+          tests:
+            - not null
+            - relationships:
+                name: fk__concept_ancestor_ancestor_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: descendant_concept_id
+          tests:
+            - not null
+            - relationships:
+                name: fk__concept_ancestor_descendant_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: min_levels_of_separation
+          tests:
+            - not null
         - name: max_levels_of_separation
+          tests:
+            - not null
     - name: concept_class
       columns:
         - name: concept_class_id
-        - name: concept_class_name
+          tests:
+            - unique
+            - not null
+        - name: concept_class_name        
+          tests:
+            - not null
         - name: concept_class_concept_id
+          tests:
+            - not null
+            - relationships:
+                name: fk__concept_class_concept_class_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
     - name: concept_relationship
       columns:
         - name: concept_id_1

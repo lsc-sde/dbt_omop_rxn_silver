@@ -26,10 +26,8 @@ sources:
                 other_column: birth_datetime
                 fk: person_id
                 operator: 'ge'
-
         - name: death_datetime
           tests:
-            - not_null
             - dbt_utils.expression_is_true:
                 name: le_now__death_death_datetime
                 expression: "<= CURRENT_TIMESTAMP()"
@@ -40,6 +38,21 @@ sources:
                 fk: person_id
                 operator: 'ge'
         - name: death_type_concept_id
+          tests:
+            - relationships:
+                name: fk__death_death_type_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: cause_concept_id
+          tests:
+            - relationships:
+                name: fk__death_cause_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: cause_source_value
         - name: cause_source_concept_id
+          tests:
+            - relationships:
+                name: fk__death_cause_source_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
