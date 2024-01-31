@@ -21,6 +21,7 @@ sources:
                 name: le_now__death_death_date
                 expression: "<= CURRENT_TIMESTAMP()"
             - linked_model_column_comparison:
+                name: comp__death_date_ge_birth_datetime
                 other_model: source('omop', 'person')
                 other_column: birth_datetime
                 fk: person_id
@@ -32,6 +33,12 @@ sources:
             - dbt_utils.expression_is_true:
                 name: le_now__death_death_datetime
                 expression: "<= CURRENT_TIMESTAMP()"
+            - linked_model_column_comparison:
+                name: comp__death_datetime_ge_birth_datetime
+                other_model: source('omop', 'person')
+                other_column: birth_datetime
+                fk: person_id
+                operator: 'ge'
         - name: death_type_concept_id
         - name: cause_concept_id
         - name: cause_source_value
