@@ -1,0 +1,21 @@
+select
+  note_nlp_id,
+  note_id,
+  section_concept_id,
+  snippet,
+  offset,
+  lexical_variant,
+  note_nlp_concept_id,
+  note_nlp_source_concept_id,
+  nlp_system,
+  nlp_date,
+  nlp_datetime,
+  term_exists,
+  term_temporal,
+  term_modifiers,
+  {{ adapter.quote("Version") }},
+  {{ adapter.quote("Year") }},
+  {{ adapter.quote("Month") }},
+  {{ adapter.quote("Day") }},
+  {{ adapter.quote("ProcessInstanceId") }}
+from {{ source('omop', 'note_nlp') }}

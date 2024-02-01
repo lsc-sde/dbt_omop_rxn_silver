@@ -16,6 +16,11 @@ select
   race_source_value,
   race_source_concept_id,
   ethnicity_source_value,
-  ethnicity_source_concept_id
+  ethnicity_source_concept_id,
+  {{ adapter.quote("Version") }},
+  {{ adapter.quote("Year") }},
+  {{ adapter.quote("Month") }},
+  {{ adapter.quote("Day") }},
+  {{ adapter.quote("ProcessInstanceId") }}
 from {{ source('omop', 'person') }}
 where birth_datetime <= {{ dbt.current_timestamp() }}
