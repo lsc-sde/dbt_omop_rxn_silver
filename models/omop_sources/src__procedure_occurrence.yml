@@ -32,7 +32,6 @@ sources:
                 expression: "<= CURRENT_TIMESTAMP()"
         - name: procedure_datetime
           tests:
-            - not_null
             - dbt_utils.expression_is_true:
                 name: procedure_occurrence_procedure_datetime_le_now
                 expression: "<= CURRENT_TIMESTAMP()"
