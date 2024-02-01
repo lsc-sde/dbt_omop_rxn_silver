@@ -11,7 +11,7 @@ sources:
             - not_null
             - relationships:
                 name: fk__episode_event_episode_id
-                to: source('vocab', 'episode')
+                to: source('omop', 'episode')
                 field: episode_id
         - name: event_id
           tests:

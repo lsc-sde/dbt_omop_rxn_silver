@@ -74,19 +74,19 @@ sources:
           tests:
             - relationships:
                 name: fk__measurement_provider_id
-                to: source('vocab', 'provider')
+                to: source('omop', 'provider')
                 field: provider_id
         - name: visit_occurrence_id
           tests:
             - relationships:
                 name: fk__measurement_visit_occurrence_id
-                to: source('vocab', 'visit_occurrence')
+                to: source('omop', 'visit_occurrence')
                 field: visit_occurrence_id
         - name: visit_detail_id
           tests:
             - relationships:
                 name: fk__measurement_visit_detail_id
-                to: source('vocab', 'visit_detail')
+                to: source('omop', 'visit_detail')
                 field: visit_detail_id
         - name: measurement_source_value
         - name: measurement_source_concept_id
