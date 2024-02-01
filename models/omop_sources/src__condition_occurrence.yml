@@ -37,7 +37,7 @@ sources:
                 fk: person_id
                 operator: 'ge'
             - linked_model_date_comparison:
-                name: comp__vcondition_start_date_le_death_date
+                name: comp__condition_start_date_le_death_date
                 other_model: source('omop', 'death')
                 other_column: death_date
                 fk: person_id
