@@ -36,6 +36,8 @@ sources:
                 field: concept_class_id
         - name: standard_concept
         - name: concept_code
+          tests:
+            - not_null
         - name: valid_start_date
           tests:
             - not_null
@@ -180,11 +182,7 @@ sources:
           tests:
             - not_null
         - name: vocabulary_reference
-          tests:
-            - not_null
         - name: vocabulary_version
-          tests:
-            - not_null
         - name: vocabulary_concept_id
           tests:
             - not_null
