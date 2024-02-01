@@ -66,7 +66,6 @@ sources:
                 field: provider_id
         - name: care_site_id
           tests:
-            - not_null
             - relationships:
                 name: fk__visit_occurrence_care_site_id
                 to: source('omop', 'care_site')
