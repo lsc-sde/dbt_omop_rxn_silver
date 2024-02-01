@@ -13,8 +13,18 @@ models:
         description: A unique identifier for each Care Site.
       - name: place_of_service_concept_id
         description: A foreign key that refers to a Place of Service Concept ID in the Standardized Vocabularies.
+        tests:
+          - relationships:
+              name: fk__care_site_place_of_service_concept_id
+              to: ref('concept')
+              field: concept_id
       - name: location_id
         description: A foreign key to the geographic Location in the LOCATION table, where the detailed address information is stored.
+        tests:
+          - relationships:
+              name: fk__care_site_location_id
+              to: ref('location')
+              field: location_id
       - name: care_site_source_value
         description: 	The identifier for the Care Site in the source data, stored here for reference.
       - name: place_of_service_source_value
