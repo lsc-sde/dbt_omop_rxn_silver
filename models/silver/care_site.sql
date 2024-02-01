@@ -1,13 +1,13 @@
 select
-  care_site_id,
-  care_site_name,
-  place_of_service_concept_id,
-  location_id,
-  care_site_source_value,
-  place_of_service_source_value,
-  {{ adapter.quote("Version") }},
-  {{ adapter.quote("Year") }},
-  {{ adapter.quote("Month") }},
-  {{ adapter.quote("Day") }},
-  {{ adapter.quote("ProcessInstanceId") }}
-from {{ source('omop', 'care_site') }}
+  cs.care_site_id,
+  cs.care_site_name,
+  cs.place_of_service_concept_id,
+  cs.location_id,
+  cs.care_site_source_value,
+  cs.place_of_service_source_value,
+  cs.{{ adapter.quote("Version") }},
+  cs.{{ adapter.quote("Year") }},
+  cs.{{ adapter.quote("Month") }},
+  cs.{{ adapter.quote("Day") }},
+  cs.{{ adapter.quote("ProcessInstanceId") }}
+from {{ source('omop', 'care_site') }} as cs

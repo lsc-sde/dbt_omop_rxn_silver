@@ -1,11 +1,11 @@
 select
-  ancestor_concept_id,
-  descendant_concept_id,
-  min_levels_of_separation,
-  max_levels_of_separation,
-  {{ adapter.quote("Version") }},
-  {{ adapter.quote("Year") }},
-  {{ adapter.quote("Month") }},
-  {{ adapter.quote("Day") }},
-  {{ adapter.quote("ProcessInstanceId") }}
-from {{ source('vocab', 'concept_ancestor') }}
+  ca.ancestor_concept_id,
+  ca.descendant_concept_id,
+  ca.min_levels_of_separation,
+  ca.max_levels_of_separation,
+  ca.{{ adapter.quote("Version") }},
+  ca.{{ adapter.quote("Year") }},
+  ca.{{ adapter.quote("Month") }},
+  ca.{{ adapter.quote("Day") }},
+  ca.{{ adapter.quote("ProcessInstanceId") }}
+from {{ source('vocab', 'concept_ancestor') }} as ca

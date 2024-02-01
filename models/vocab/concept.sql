@@ -1,17 +1,17 @@
 select
-  concept_id,
-  concept_name,
-  domain_id,
-  vocabulary_id,
-  concept_class_id,
-  standard_concept,
-  concept_code,
-  valid_start_date,
-  valid_end_date,
-  invalid_reason,
-  {{ adapter.quote("Version") }},
-  {{ adapter.quote("Year") }},
-  {{ adapter.quote("Month") }},
-  {{ adapter.quote("Day") }},
-  {{ adapter.quote("ProcessInstanceId") }}
-from {{ source('vocab', 'concept') }}
+  c.concept_id,
+  c.concept_name,
+  c.domain_id,
+  c.vocabulary_id,
+  c.concept_class_id,
+  c.standard_concept,
+  c.concept_code,
+  c.valid_start_date,
+  c.valid_end_date,
+  c.invalid_reason,
+  c.{{ adapter.quote("Version") }},
+  c.{{ adapter.quote("Year") }},
+  c.{{ adapter.quote("Month") }},
+  c.{{ adapter.quote("Day") }},
+  c.{{ adapter.quote("ProcessInstanceId") }}
+from {{ source('vocab', 'concept') }} as c
