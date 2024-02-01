@@ -1,7 +1,4 @@
-# models/omop_sources/src__observation.yml
-
 version: 2
-
 sources:
   - name: omop
     catalog: hive_metastore

@@ -106,7 +106,7 @@ sources:
         - name: meas_event_field_concept_id
           tests:
             - relationships:
-                name: fk__measurement_meas_event_field_concept_idd
+                name: fk__measurement_meas_event_field_concept_id
                 to: source('vocab', 'concept')
                 field: concept_id
         - name: measurement_event_id
