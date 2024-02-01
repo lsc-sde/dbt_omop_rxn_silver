@@ -38,6 +38,24 @@ dispatch:
 tests:
   store_failures: true
   store_failures_as: table
+
 # Use dbt variables for simple concept lists
 # For more complex requirements, consider using seeds
 vars: {}
+
+models:
+  dbt_omop_rxn_silver:
+    silver:
+      +tags:
+        - silver
+        - omop
+      +docs:
+        node_color: "#665191"
+      +materialized: table
+      +post_hook:
+        - "VACUUM {{ this }} RETAIN 168 HOURS"
+
+sources:
+  dbt_omop_rxn_silver:
+    +docs:
+      node_color: "#FFA600"

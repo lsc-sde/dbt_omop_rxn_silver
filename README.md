@@ -36,3 +36,5 @@ dbt_omop_rxn_silver:
 ```
 
 4. Run `dbt deps` to setup the dbt dependencies.
+
+5. Run `dbt run -s "dbt_omop_rxn_silver"` to run the entire package or select specific models.
