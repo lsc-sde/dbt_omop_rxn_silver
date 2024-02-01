@@ -42,6 +42,10 @@ sources:
         - name: episode_type_concept_id
           tests:
             - not_null
+            - relationships:
+                name: fk__episode_episode_type_concept_id
+                to: source('vocab', 'concept')
+                field: concept_id
         - name: episode_source_value
         - name: episode_source_concept_id
           tests:
