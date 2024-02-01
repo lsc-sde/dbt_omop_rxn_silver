@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: DRUG_EXPOSURE
+  - name: drug_exposure
     description: <http://omop-erd.surge.sh/omop_cdm/tables/DRUG_EXPOSURE.html>
     columns:
       - name: drug_exposure_id

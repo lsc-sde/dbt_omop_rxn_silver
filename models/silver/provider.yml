@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: PROVIDER
+  - name: provider
     description: <http://omop-erd.surge.sh/omop_cdm/tables/PROVIDER.html>
     columns:
       - name: provider_id

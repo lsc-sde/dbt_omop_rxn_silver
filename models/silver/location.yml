@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: LOCATION
+  - name: location
     description: <http://omop-erd.surge.sh/omop_cdm/tables/LOCATION.html>
     columns:
       - name: location_id

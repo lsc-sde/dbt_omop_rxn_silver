@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: CARE_SITE
+  - name: care_site
     description: <http://omop-erd.surge.sh/omop_cdm/tables/CARE_SITE.html>
     columns:
       - name: care_site_id
@@ -15,14 +15,14 @@ models:
         description: A foreign key that refers to a Place of Service Concept ID in the Standardized Vocabularies.
         tests:
           - relationships:
-              name: fk__care_site_place_of_service_concept_id
+              name: ag_fk__care_site_place_of_service_concept_id
               to: ref('concept')
               field: concept_id
       - name: location_id
         description: A foreign key to the geographic Location in the LOCATION table, where the detailed address information is stored.
         tests:
           - relationships:
-              name: fk__care_site_location_id
+              name: ag_fk__care_site_location_id
               to: ref('location')
               field: location_id
       - name: care_site_source_value

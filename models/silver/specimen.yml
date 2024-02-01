@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: SPECIMEN
+  - name: specimen
     description: <http://omop-erd.surge.sh/omop_cdm/tables/SPECIMEN.html>
     columns:
       - name: specimen_id

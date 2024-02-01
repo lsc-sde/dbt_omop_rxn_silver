@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: DEATH
+  - name: death
     description: <http://omop-erd.surge.sh/omop_cdm/tables/DEATH.html>
     columns:
       - name: person_id

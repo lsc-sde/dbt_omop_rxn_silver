@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: MEASUREMENT
+  - name: measurement
     description: <http://omop-erd.surge.sh/omop_cdm/tables/MEASUREMENT.html>
     columns:
       - name: measurement_id

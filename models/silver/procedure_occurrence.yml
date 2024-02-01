@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: PROCEDURE_OCCURRENCE
+  - name: procedure_occurrence
     description: <http://omop-erd.surge.sh/omop_cdm/tables/PROCEDURE_OCCURRENCE.html>
     columns:
       - name: procedure_occurrence_id

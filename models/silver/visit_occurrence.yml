@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: VISIT_OCCURRENCE
+  - name: visit_occurrence
     description: <http://omop-erd.surge.sh/omop_cdm/tables/VISIT_OCCURRENCE.html>
     columns:
       - name: visit_occurrence_id
