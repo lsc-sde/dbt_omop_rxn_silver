@@ -1,0 +1,12 @@
+dbt_omop_rxn_silver:
+  target: databricks-job
+  outputs:
+    databricks-job:
+      type: databricks
+      catalog: hive_metastore
+      schema: dev
+      method: http
+      host: adb-3304882170965542.2.azuredatabricks.net
+      http_path: /sql/1.0/warehouses/6b567a54d5ff528b
+      token: "{{ env_var('DBT_ACCESS_TOKEN') }}"
+      threads: 12
