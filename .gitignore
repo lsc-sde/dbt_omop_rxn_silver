@@ -1,5 +1,7 @@
 target/
 dbt_packages/
 logs/
-
+ohdsi_jdbc/
+.databricks/
 .env
+.Rproj.user
