@@ -41,7 +41,8 @@ tests:
 
 # Use dbt variables for simple concept lists
 # For more complex requirements, consider using seeds
-vars: {}
+vars:
+  minimum_observation_period_start_date: "2005-01-01"
 
 models:
   dbt_omop_rxn_silver:
