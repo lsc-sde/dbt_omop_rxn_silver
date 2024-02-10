@@ -1,6 +1,7 @@
 install.packages("remotes")
 remotes::install_github("OHDSI/Achilles")
 install.packages('dotenv')
+install.packages('Achilles')
 
 library(DatabaseConnector)
 library(Achilles)
@@ -32,12 +33,12 @@ connectionDetails <- createConnectionDetails(
 )
 
 Achilles::achilles(
-  cdmVersion = "5.4",
+  cdmVersion = cdmVersion,
   connectionDetails = connectionDetails,
-  cdmDatabaseSchema = "hive_metastore.omop_source",
-  resultsDatabaseSchema = "hive_metastore.omop_achilles",
-  sqlDialect = "spark",
+  cdmDatabaseSchema = cdmDatabaseSchema,
+  resultsDatabaseSchema = resultsDatabaseSchema,
+  sqlDialect = sqlDialect,
   dropScratchTables = True,
-  numThreads = 12,
+  numThreads = 1,
   optimizeAtlasCache = True
 )
