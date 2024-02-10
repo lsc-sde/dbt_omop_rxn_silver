@@ -3,10 +3,11 @@
 {# This tests uses operator to compare two columns in two models joined by fk #}
 
 select
-    m1.{{ fk }},
-    {{ column_name }},
-    {{ other_column }},
-    '{{ operator }}' as expectation
+  {{ model.identifier }}_id,
+  m1.{{ fk }},
+  {{ column_name }},
+  {{ other_column }},
+  '{{ operator }}' as expectation
 from {{ model }} as m1
 join {{ other_model }} as m2
 on m1.{{ fk }} = m2.{{ fk }}
