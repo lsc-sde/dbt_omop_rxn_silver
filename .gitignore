@@ -4,7 +4,7 @@ logs/
 ohdsi_jdbc/
 output/
 .databricks/
-.env
+.env*
 
 # https://github.com/github/gitignore/blob/main/R.gitignore
 # History files
