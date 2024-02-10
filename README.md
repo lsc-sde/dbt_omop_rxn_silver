@@ -37,4 +37,6 @@ dbt_omop_rxn_silver:
 
 4. Run `dbt deps` to setup the dbt dependencies.
 
-5. Run `dbt run -s "dbt_omop_rxn_silver"` to run the entire package or select specific models.
+5. When running locally, set $Env:DBT_PROFILES_DIR='C:\Users\vishnu.chandrabalan\.dbt' to ensure that the above profiles directory is used instead of the 'profiles.yaml' file in root of this project that is used for databricks jobs.
+
+6. Run `dbt run -s "dbt_omop_rxn_silver"` to run the entire package or select specific models.
